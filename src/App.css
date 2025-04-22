@@ -1,0 +1,17 @@
+html,
+body,
+#root {
+	background-color: #f2f4f7;
+}
+
+.mt-100 {
+	margin-top: 100px;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.max-w {
+	max-width: 400px;
+}
