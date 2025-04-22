@@ -23,7 +23,7 @@ const Claude = () => {
 	async function getRecipe() {
 		try {
 			const response = await fetch(
-				'https://recipehub-rho.vercel.app/generate-recipe',
+				'https://vercel-express-api-murex.vercel.app/generate-recipe',
 				{
 					method: 'POST',
 					headers: {

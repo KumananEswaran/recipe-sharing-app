@@ -15,7 +15,9 @@ const MyRecipe = () => {
 	useEffect(() => {
 		const fetchRecipes = async () => {
 			try {
-				const res = await axios.get('https://recipehub-rho.vercel.app/recipes');
+				const res = await axios.get(
+					'https://vercel-express-api-murex.vercel.app/recipes'
+				);
 				const userRecipes = res.data.filter(
 					(recipe) => recipe.user_uid === userUid
 				);
@@ -41,7 +43,9 @@ const MyRecipe = () => {
 
 	const refreshRecipes = async () => {
 		try {
-			const res = await axios.get('https://recipehub-rho.vercel.app/recipes');
+			const res = await axios.get(
+				'https://vercel-express-api-murex.vercel.app/recipes'
+			);
 			const userRecipes = res.data.filter((r) => r.user_uid === userUid);
 			setRecipes(userRecipes);
 		} catch (error) {
@@ -67,7 +71,7 @@ const MyRecipe = () => {
 	const handleDelete = async () => {
 		try {
 			await axios.delete(
-				`https://recipehub-rho.vercel.app/recipes/${recipeToDelete.id}`
+				`https://vercel-express-api-murex.vercel.app/${recipeToDelete.id}`
 			);
 			toast.success('Recipe deleted successfully');
 			deleteClose();

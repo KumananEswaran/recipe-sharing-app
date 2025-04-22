@@ -22,7 +22,7 @@ const SignUpPage = () => {
 			);
 			const uid = userCredential.user.uid;
 
-			await axios.post('https://recipehub-rho.vercel.app/register', {
+			await axios.post('https://vercel-express-api-murex.vercel.app/register', {
 				uid,
 				name,
 				email,

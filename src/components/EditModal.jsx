@@ -34,13 +34,16 @@ const EditModal = ({ show, handleClose, recipe, refreshRecipes }) => {
 				imageUrl = await getDownloadURL(imageRef);
 			}
 
-			await axios.put(`https://recipehub-rho.vercel.app/recipes/${recipe.id}`, {
-				title,
-				description,
-				ingredients,
-				directions,
-				image_url: imageUrl,
-			});
+			await axios.put(
+				`https://vercel-express-api-murex.vercel.app/recipes/${recipe.id}`,
+				{
+					title,
+					description,
+					ingredients,
+					directions,
+					image_url: imageUrl,
+				}
+			);
 
 			toast.success('Recipe updated successfully!');
 			handleClose();

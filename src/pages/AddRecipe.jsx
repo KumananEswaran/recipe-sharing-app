@@ -30,7 +30,7 @@ const AddRecipe = () => {
 				imageUrl = await getDownloadURL(imageRef);
 			}
 
-			await axios.post('https://recipehub-rho.vercel.app/recipes', {
+			await axios.post('https://vercel-express-api-murex.vercel.app/recipes', {
 				title,
 				description,
 				ingredients,

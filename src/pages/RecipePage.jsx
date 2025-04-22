@@ -18,7 +18,7 @@ const RecipePage = () => {
 		const fetchRecipe = async () => {
 			try {
 				const res = await axios.get(
-					`https://recipehub-rho.vercel.app/recipes/${id}`
+					`https://vercel-express-api-murex.vercel.app/${id}`
 				);
 				setRecipe(res.data);
 			} catch (error) {
@@ -29,7 +29,7 @@ const RecipePage = () => {
 
 			if (user_uid) {
 				const res = await axios.get(
-					`https://recipehub-rho.vercel.app/bookmarks/${user_uid}`
+					`https://vercel-express-api-murex.vercel.app/${user_uid}`
 				);
 				const bookmarkedIds = res.data;
 				setBookmarked(bookmarkedIds.includes(Number(id)));
@@ -42,7 +42,7 @@ const RecipePage = () => {
 	const toggleBookmark = async () => {
 		try {
 			const res = await axios.post(
-				'https://recipehub-rho.vercel.app/bookmarks',
+				'https://vercel-express-api-murex.vercel.app/bookmarks',
 				{
 					user_uid,
 					recipe_id: id,
