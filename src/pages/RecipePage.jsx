@@ -37,7 +37,7 @@ const RecipePage = () => {
 		};
 
 		fetchRecipe();
-	}, [id]);
+	}, [id, user_uid]);
 
 	const toggleBookmark = async () => {
 		try {
