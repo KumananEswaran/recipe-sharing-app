@@ -22,11 +22,14 @@ const SignUpPage = () => {
 			);
 			const uid = userCredential.user.uid;
 
-			await axios.post('https://vercel-express-api-murex.vercel.app/register', {
-				uid,
-				name,
-				email,
-			});
+			await axios.post(
+				'https://vercel-express-api-murex.vercel.app/api/register',
+				{
+					uid,
+					name,
+					email,
+				}
+			);
 			toast.success('You can now login');
 			navigate('/login');
 		} catch (error) {
