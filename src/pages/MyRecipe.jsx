@@ -71,7 +71,7 @@ const MyRecipe = () => {
 	const handleDelete = async () => {
 		try {
 			await axios.delete(
-				`https://vercel-express-api-murex.vercel.app/${recipeToDelete.id}`
+				`https://vercel-express-api-murex.vercel.app/recipes/${recipeToDelete.id}`
 			);
 			toast.success('Recipe deleted successfully');
 			deleteClose();
