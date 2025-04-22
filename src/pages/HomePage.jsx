@@ -53,7 +53,7 @@ const HomePage = () => {
 
 			// Toggle the like state
 			const res = await axios.post(
-				`https://vercel-express-api-murex.vercel.app/${recipeId}/toggle-like`,
+				`https://vercel-express-api-murex.vercel.app/recipes/${recipeId}/toggle-like`,
 				{ uid: user.uid }
 			);
 
