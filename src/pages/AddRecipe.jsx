@@ -6,6 +6,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import CreatableSelect from 'react-select/creatable';
 
 const AddRecipe = () => {
 	const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -16,6 +17,17 @@ const AddRecipe = () => {
 	const [ingredients, setIngredients] = useState('');
 	const [directions, setDirections] = useState('');
 	const [imageFile, setImageFile] = useState(null);
+	const [tags, setTags] = useState([]);
+
+	const tagOptions = [
+		{ value: 'vegan', label: 'Vegan' },
+		{ value: 'gluten-free', label: 'Gluten-Free' },
+		{ value: 'quick', label: 'Quick' },
+		{ value: 'dessert', label: 'Dessert' },
+		{ value: 'breakfast', label: 'Breakfast' },
+		{ value: 'healthy', label: 'Healthy' },
+		{ value: 'dinner', label: 'Dinner' },
+	];
 
 	const navigate = useNavigate();
 
@@ -37,6 +49,7 @@ const AddRecipe = () => {
 				directions,
 				imageUrl,
 				user_uid: userUid,
+				tags: tags.map((tag) => tag.value),
 			});
 
 			toast.success('Recipe posted successfully');
@@ -94,6 +107,16 @@ const AddRecipe = () => {
 							placeholder="Put each step on its own line"
 							value={directions}
 							onChange={(e) => setDirections(e.target.value)}
+						/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="tags">
+						<Form.Label className="fw-semibold">Tags</Form.Label>
+						<CreatableSelect
+							isMulti
+							options={tagOptions}
+							value={tags}
+							onChange={setTags}
+							placeholder="Add or select tags"
 						/>
 					</Form.Group>
 					<Form.Group controlId="formFile" className="mb-4">

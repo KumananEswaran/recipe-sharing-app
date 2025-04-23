@@ -45,10 +45,19 @@ const SearchRecipe = () => {
 	return (
 		<>
 			<FullNavigationBar />
-			<Container className="py-4">
-				<h2 className="text-center fw-bold display-4 text-primary">
-					Search Recipes by Ingredient <br /> (The MealDB)
-				</h2>
+			<Container className="mt-5">
+				<Row className="justify-content-center">
+					<Col md="auto">
+						<h2 className="text-center fw-bold display-4 text-primary">
+							Search Recipes by Ingredient
+						</h2>
+						<p className="text-center text-muted">
+							These recipes are from The MealDB
+						</p>
+					</Col>
+				</Row>
+			</Container>
+			<Container>
 				<section className="mx-auto py-5" style={{ maxWidth: '800px' }}>
 					<Form
 						className="d-flex align-items-center gap-3"
