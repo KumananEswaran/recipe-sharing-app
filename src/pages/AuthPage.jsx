@@ -38,6 +38,43 @@ const AuthPage = () => {
 					</Col>
 				</Row>
 			</Container>
+			<footer className="bg-dark text-light text-center text-lg-start mt-100 border-top border-secondary">
+				<Container className="py-4">
+					<Row className="justify-content-between align-items-center">
+						<Col md={6} className="text-md-start text-center mb-3 mb-md-0">
+							<h5 className="fw-bold text-light">RecipeHub</h5>
+							<p className="mb-0 text-light">
+								Your ultimate recipe companion. Find. Save. Share.
+							</p>
+						</Col>
+
+						<Col
+							md={6}
+							className="d-flex justify-content-md-end justify-content-center">
+							<Link
+								to="/about"
+								className="text-decoration-none text-light me-4">
+								About
+							</Link>
+							<Link
+								to="/contact"
+								className="text-decoration-none text-light me-4">
+								Contact
+							</Link>
+							<Link to="/privacy" className="text-decoration-none text-light">
+								Privacy
+							</Link>
+						</Col>
+					</Row>
+
+					<hr className="my-4 border-light" />
+
+					<p className="text-center mb-0 text-light">
+						© {new Date().getFullYear()}{' '}
+						<span className="fw-semibold">RecipeHub</span>. All rights reserved.
+					</p>
+				</Container>
+			</footer>
 		</>
 	);
 };
