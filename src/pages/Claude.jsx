@@ -1,11 +1,12 @@
 import FullNavigationBar from '../components/FullNavigationBar';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container, Spinner } from 'react-bootstrap';
 import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 const Claude = () => {
 	const [ingredients, setIngredients] = useState([]);
 	const [recipe, setRecipe] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 	const recipeSection = useRef(null);
 
 	useEffect(() => {
@@ -21,6 +22,7 @@ const Claude = () => {
 	}, [recipe]);
 
 	async function getRecipe() {
+		setIsLoading(true);
 		try {
 			const response = await fetch(
 				'https://vercel-express-api-murex.vercel.app/generate-recipe',
@@ -36,6 +38,8 @@ const Claude = () => {
 			setRecipe(data.recipe);
 		} catch (error) {
 			console.error('Error getting recipe:', error);
+		} finally {
+			setIsLoading(false);
 		}
 	}
 
@@ -106,7 +110,13 @@ const Claude = () => {
 						</div>
 					</div>
 				)}
-				{recipe && <ReactMarkdown>{recipe}</ReactMarkdown>}
+				{isLoading && (
+					<div className="text-center mt-4">
+						<Spinner animation="border" variant="primary" />
+						<p>Generating your recipe...</p>
+					</div>
+				)}
+				{recipe && !isLoading && <ReactMarkdown>{recipe}</ReactMarkdown>}
 			</section>
 		</>
 	);

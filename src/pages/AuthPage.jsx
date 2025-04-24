@@ -38,7 +38,7 @@ const AuthPage = () => {
 					</Col>
 				</Row>
 			</Container>
-			<footer className="bg-dark text-light text-center text-lg-start mt-100 border-top border-secondary">
+			<footer className="bg-primary text-light text-center text-lg-start mt-100 border-top border-secondary">
 				<Container className="py-4">
 					<Row className="justify-content-between align-items-center">
 						<Col md={6} className="text-md-start text-center mb-3 mb-md-0">
