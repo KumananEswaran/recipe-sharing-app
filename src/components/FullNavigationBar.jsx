@@ -7,6 +7,8 @@ import { auth } from '../firebase';
 const FullNavigationBar = () => {
 	const navigate = useNavigate();
 
+	const user = JSON.parse(localStorage.getItem('user'));
+
 	const handleLogout = async () => {
 		await signOut(auth);
 		navigate('/');
@@ -41,8 +43,17 @@ const FullNavigationBar = () => {
 								AI Recipe
 							</Nav.Link>
 						</Nav>
-						<div className="d-flex">
-							<Button variant="danger" type="submit" onClick={handleLogout}>
+						<div className="d-flex align-items-center">
+							<span className="text-white me-3">
+								Hello,{' '}
+								<strong>
+									{user?.name?.charAt(0).toUpperCase() + user?.name?.slice(1) ||
+										user?.email?.split('@')[0]?.charAt(0).toUpperCase() +
+											user?.email?.split('@')[0]?.slice(1) ||
+										'User'}
+								</strong>
+							</span>
+							<Button variant="danger" onClick={handleLogout}>
 								Logout
 							</Button>
 						</div>

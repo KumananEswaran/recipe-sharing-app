@@ -112,6 +112,16 @@ const MyRecipe = () => {
 											</Card.Title>
 											<p>By {recipe.user_name}</p>
 											<Card.Text>{recipe.description}</Card.Text>
+											<div className="mb-2">
+												{recipe.tags?.map((tag, index) => (
+													<span
+														key={index}
+														className="badge bg-primary me-1"
+														style={{ fontSize: '0.8rem', cursor: 'pointer' }}>
+														# {tag.toLowerCase()}
+													</span>
+												))}
+											</div>
 											<div className="d-flex justify-content-between align-items-center">
 												<Link to={`/recipe/${recipe.id}`}>
 													<Button variant="outline-primary">View Recipe</Button>
